@@ -2,10 +2,9 @@ package builder;
 
 public interface IceCreamOrderBuilder {
     void reset();
-    IceCreamOrderBuilder setFlavor(String flavor);
-    IceCreamOrderBuilder setContainer(String container);
-    IceCreamOrderBuilder setSyrupType(String syrupType);
-    IceCreamOrderBuilder setScoopCount(int scoopCount);
-    IceCreamOrderBuilder setCherry(boolean hasCherry);
-    IceCreamOrderBuilder setSprinkles(boolean hasSprinkles);
+    IceCreamOrderBuilder flavor(String flavor);
+    IceCreamOrderBuilder container(String container);
+    IceCreamOrderBuilder addTopping(String topping);
+    IceCreamOrderBuilder mixIn(String mixIn);
+    IceCreamOrderBuilder scoopCount(int scoopCount);
 }
