@@ -1,20 +1,21 @@
 package builder;
 
+import java.util.List;
+
 public class IceCream {
     private final String flavor;
     private final String container;
-    private final String syrupType;
+    private final List<String> toppings;
+    private final String mixIn;
     private final int scoopCount;
-    private final boolean hasCherry;
-    private final boolean hasSprinkles;
 
-    public IceCream(String flavor, String container, String syrupType, int scoopCount, boolean hasCherry, boolean hasSprinkles) {
+    public IceCream(String flavor, String container, List<String> toppings, String mixIn, int scoopCount) {
         this.flavor = flavor;
         this.container = container;
-        this.syrupType = syrupType;
+        // Copy only if toppings are not empty
+        this.toppings = toppings == null ? List.of() : List.copyOf(toppings);
+        this.mixIn = mixIn;
         this.scoopCount = scoopCount;
-        this.hasCherry = hasCherry;
-        this.hasSprinkles = hasSprinkles;
     }
 
     @Override
@@ -22,10 +23,9 @@ public class IceCream {
         return "IceCream{" +
                 "flavor='" + flavor + '\'' +
                 ", container='" + container + '\'' +
-                ", syrupType='" + syrupType + '\'' +
+                ", toppings=" + toppings +
+                ", mixIn='" + mixIn + '\'' +
                 ", scoopCount=" + scoopCount +
-                ", hasCherry=" + hasCherry +
-                ", hasSprinkles=" + hasSprinkles +
                 '}';
     }
 }
