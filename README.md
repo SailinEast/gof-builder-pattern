@@ -51,7 +51,7 @@ Below are six Clean Code principles taken directly from **Chapter 2 (*Meaningful
 public interface IceCreamBuilder { ... }
 public class IceCreamProductBuilder implements IceCreamBuilder { ... }
 
-// AFTER (Meaningful distinction: Order Contract vs. Concrete Builder):
+// AFTER (Meaningful distinction: Order vs. Concrete Builder):
 public interface IceCreamOrderBuilder { ... }
 public class IceCreamBuilder implements IceCreamOrderBuilder { ... }
 ```
@@ -169,18 +169,7 @@ public class Receipt {
 
 // AFTER (Cohesive Argument/Value Object encapsulates the concept):
 public class Receipt {
-  public static class Item {
-    private final String type;
-    private final String description;
-    private final double price;
-
-    public Item(String type, String description, double price) {
-      this.type = type;
-      this.description = description;
-      this.price = price;
-    }
-  }
-
+  public record Item(String type, String description, Double price) {}
   private final List<Item> items; // Single list of cohesive objects
 }
 ```
@@ -193,7 +182,7 @@ public class Receipt {
 * **Justification:** Clean Code recommends using solution-domain pattern suffixes (`Builder`) so developers immediately recognize the architectural role of a class. At the same time, domain concepts should use problem-domain vocabulary (*Ubiquitous Language*) rather than generic textbook jargon like `Director` or `Client`.
 * **Refactoring:** I kept the solution-domain suffix `*Builder` for construction classes, but renamed textbook placeholders to domain-aligned names from the ice cream problem space:
   * Generic `Director` ➔ `IceCreamChef`
-  * Generic `Client` / `Main` ➔ `Kiosk`
+  * Generic `Client` ➔ `Kiosk`
 
 ```java
 // BEFORE (Generic textbook jargon):
