@@ -25,11 +25,11 @@ public class Receipt {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("=============== RECEIPT ===============\n");
+        sb.append("================== RECEIPT ==================\n");
         for (Item item : items) {
-            sb.append(String.format("%-11s%-19s$%8.2f%n", item.type, item.description(), item.price()));
+            sb.append(String.format("%-15s%-21s$%8.2f%n", item.type, item.description(), item.price()));
         }
-        sb.append("=======================================\n");
+        sb.append("=============================================\n");
         sb.append(String.format("%-30s$%8.2f%n", "TOTAL", calculateTotalCost()));
         return sb.toString();
     }
