@@ -12,12 +12,20 @@ public class IceCreamBuilder implements IceCreamOrderBuilder {
 
     @Override
     public IceCreamBuilder flavor(String flavor) {
+        if (flavor == null) {
+            throw new IllegalStateException("Flavor is required to build an ice cream");
+        }
+
         this.flavor = flavor;
         return this;
     }
 
     @Override
     public IceCreamBuilder container(String container) {
+        if (container == null) {
+            throw new IllegalStateException("Container type is required to build an ice cream");
+        }
+
         this.container = container;
         return this;
     }
@@ -36,6 +44,10 @@ public class IceCreamBuilder implements IceCreamOrderBuilder {
 
     @Override
     public IceCreamBuilder scoopCount(int scoopCount) {
+        if (scoopCount <= 0) {
+            throw new IllegalArgumentException("Scoop count must at least be 1");
+        }
+
         this.scoopCount = scoopCount;
         return this;
     }
