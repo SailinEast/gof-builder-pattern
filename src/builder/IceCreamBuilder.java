@@ -1,12 +1,12 @@
 package builder;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class IceCreamBuilder implements IceCreamOrderBuilder {
     private String flavor;
     private String container;
-    private final List<String> toppings = new LinkedList<>();
+    private final List<String> toppings = new ArrayList<>();
     private String mixIn;
     private int scoopCount;
 

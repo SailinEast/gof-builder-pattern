@@ -1,6 +1,6 @@
 package builder;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReceiptBuilder implements IceCreamOrderBuilder {
@@ -12,7 +12,7 @@ public class ReceiptBuilder implements IceCreamOrderBuilder {
 
     private String flavor;
     private String container;
-    private final List<String> toppings = new LinkedList<>();
+    private final List<String> toppings = new ArrayList<>();
     private String mixIn;
     private int scoopCount = 1;
 
@@ -56,7 +56,7 @@ public class ReceiptBuilder implements IceCreamOrderBuilder {
     }
 
     public Receipt build() {
-        List<Receipt.Item> items = new LinkedList<>();
+        List<Receipt.Item> items = new ArrayList<>();
 
         if (flavor != null) {
             items.add(new Receipt.Item("Flavor: ", flavor, BASE_FLAVOR_PRICE));
